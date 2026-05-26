@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SGA · Docentes</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" alt="Logo" class="logo-img"/>
+    <div>
+      <div class="logo-text">S.G.A</div>
+      <span class="logo-sub">Sistema Académico</span>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Principal</div>
+    <a href="index.html" class="nav-item "><span class="nav-icon">📊</span> Dashboard</a>
+    <a href="administrador.html" class="nav-item "><span class="nav-icon">🛡️</span> Administrador</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Personas</div>
+    <a href="estudiantes.html" class="nav-item "><span class="nav-icon">🧑‍🎓</span> Estudiantes</a>
+    <a href="docentes.html" class="nav-item active"><span class="nav-icon">👨‍🏫</span> Docentes</a>
+    <a href="coordinadores.html" class="nav-item "><span class="nav-icon">👔</span> Coordinadores</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Académico</div>
+    <a href="facultades.html" class="nav-item "><span class="nav-icon">🏛️</span> Facultades</a>
+    <a href="programas.html" class="nav-item "><span class="nav-icon">📚</span> Programas</a>
+    <a href="materias.html" class="nav-item "><span class="nav-icon">📖</span> Materias</a>
+    <a href="microcurriculo.html" class="nav-item "><span class="nav-icon">📝</span> Microcurrículo</a>
+    <a href="carga-academica.html" class="nav-item "><span class="nav-icon">⚖️</span> Carga Académica</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Gestión</div>
+    <a href="horario-estudiante.html" class="nav-item "><span class="nav-icon">🗓️</span> Horario Estudiante</a>
+    <a href="horario-docente.html" class="nav-item "><span class="nav-icon">📅</span> Horario Docente</a>
+    <a href="aulas.html" class="nav-item "><span class="nav-icon">🏫</span> Aulas</a>
+    <a href="asistencia.html" class="nav-item "><span class="nav-icon">✅</span> Asistencia</a>
+    <a href="sensores.html" class="nav-item "><span class="nav-icon">📡</span> Sensores IoT</a>
+  </div>
+  <div class="sidebar-footer">
+    <strong>Victor Yepes</strong>
+    Ingeniería de Software II · 2025
+  </div>
+</aside>
+
+
+<div class="main">
+  <header class="topbar">
+    <button class="btn-icon" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">Docentes</span>
+    <span class="topbar-badge">87 registrados</span>
+    <div class="btn-icon">🔔</div><div class="avatar">AD</div>
+  </header>
+  <div class="page-content">
+    <div class="page-header fade-up">
+      <h1 class="page-title">Gestión de Docentes</h1>
+      <p class="page-subtitle">Administra el cuerpo docente y sus asignaciones académicas</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card blue fade-up"><div class="stat-icon">👨‍🏫</div><div class="stat-value" data-count="87">0</div><div class="stat-label">Total docentes</div></div>
+      <div class="stat-card green fade-up fade-up-1"><div class="stat-icon">✅</div><div class="stat-value" data-count="74">0</div><div class="stat-label">Activos</div></div>
+      <div class="stat-card cyan fade-up fade-up-2"><div class="stat-icon">📚</div><div class="stat-value" data-count="3">0</div><div class="stat-label">Materias prom. / docente</div></div>
+      <div class="stat-card purple fade-up fade-up-3"><div class="stat-icon">🏆</div><div class="stat-value" data-count="12">0</div><div class="stat-label">Docentes de planta</div></div>
+    </div>
+
+    <div class="card fade-up">
+      <div class="card-header">
+        <span style="font-size:18px">👨‍🏫</span>
+        <span class="card-title">Listado de Docentes</span>
+        <div class="search-bar"><span>🔍</span><input type="text" id="search-doc" placeholder="Buscar docente..."/></div>
+        <button class="btn btn-primary" onclick="openModal('modal-doc')">+ Nuevo Docente</button>
+      </div>
+      <div class="table-wrap">
+        <table id="tabla-doc">
+          <thead>
+            <tr><th>ID Docente</th><th>Nombre Completo</th><th>Correo</th><th>Celular</th><th>Ciudad</th><th>Materias</th><th>Acciones</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DOC-001</td><td>Dr. Roberto Sánchez Vargas</td><td>r.sanchez@inst.edu.co</td><td>315 234 5678</td><td>Bogotá</td>
+              <td><span class="badge badge-blue">3 materias</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="toast('Horario visualizado','info')">📅</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-doc')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+            <tr>
+              <td>DOC-002</td><td>Mg. Patricia Ruiz Mendoza</td><td>p.ruiz@inst.edu.co</td><td>316 345 6789</td><td>Medellín</td>
+              <td><span class="badge badge-cyan">2 materias</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm">📅</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-doc')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+            <tr>
+              <td>DOC-003</td><td>Esp. Miguel Ángel Torres</td><td>m.torres@inst.edu.co</td><td>317 456 7890</td><td>Cali</td>
+              <td><span class="badge badge-purple">4 materias</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm">📅</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-doc')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+            <tr>
+              <td>DOC-004</td><td>PhD. Carmen Liliana Ospina</td><td>c.ospina@inst.edu.co</td><td>318 567 8901</td><td>Bogotá</td>
+              <td><span class="badge badge-gold">5 materias</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm">📅</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-doc')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-doc">
+  <div class="modal">
+    <div class="modal-header">
+      <span style="font-size:20px">👨‍🏫</span>
+      <span class="modal-title">Registrar Docente</span>
+      <button class="btn-icon" onclick="closeModal('modal-doc')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid form-grid-2">
+        <div class="form-group"><label class="form-label">ID Docente</label><input class="form-input" placeholder="DOC-XXX"/></div>
+        <div class="form-group"><label class="form-label">Correo</label><input class="form-input" type="email" placeholder="docente@inst.edu.co"/></div>
+        <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" placeholder="Nombres"/></div>
+        <div class="form-group"><label class="form-label">Apellido</label><input class="form-input" placeholder="Apellidos"/></div>
+        <div class="form-group"><label class="form-label">Fecha Nacimiento</label><input class="form-input" type="date"/></div>
+        <div class="form-group"><label class="form-label">Sexo</label><select class="form-select"><option>Masculino</option><option>Femenino</option><option>Otro</option></select></div>
+        <div class="form-group"><label class="form-label">Celular</label><input class="form-input" type="tel" placeholder="300 000 0000"/></div>
+        <div class="form-group"><label class="form-label">Ciudad</label><input class="form-input" placeholder="Ciudad"/></div>
+        <div class="form-group" style="grid-column:1/-1"><label class="form-label">Dirección</label><input class="form-input" placeholder="Dirección completa"/></div>
+        <div class="form-group"><label class="form-label">Departamento</label><input class="form-input" placeholder="Departamento"/></div>
+        <div class="form-group"><label class="form-label">País</label><input class="form-input" placeholder="País" value="Colombia"/></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('modal-doc')">Cancelar</button>
+      <button class="btn btn-primary" onclick="toast('Docente registrado','success');closeModal('modal-doc')">Guardar Docente</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>initTableSearch('search-doc','tabla-doc')</script>
+</body>
+</html>

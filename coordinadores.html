@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SGA · Coordinadores</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" alt="Logo" class="logo-img"/>
+    <div>
+      <div class="logo-text">S.G.A</div>
+      <span class="logo-sub">Sistema Académico</span>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Principal</div>
+    <a href="index.html" class="nav-item "><span class="nav-icon">📊</span> Dashboard</a>
+    <a href="administrador.html" class="nav-item "><span class="nav-icon">🛡️</span> Administrador</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Personas</div>
+    <a href="estudiantes.html" class="nav-item "><span class="nav-icon">🧑‍🎓</span> Estudiantes</a>
+    <a href="docentes.html" class="nav-item "><span class="nav-icon">👨‍🏫</span> Docentes</a>
+    <a href="coordinadores.html" class="nav-item active"><span class="nav-icon">👔</span> Coordinadores</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Académico</div>
+    <a href="facultades.html" class="nav-item "><span class="nav-icon">🏛️</span> Facultades</a>
+    <a href="programas.html" class="nav-item "><span class="nav-icon">📚</span> Programas</a>
+    <a href="materias.html" class="nav-item "><span class="nav-icon">📖</span> Materias</a>
+    <a href="microcurriculo.html" class="nav-item "><span class="nav-icon">📝</span> Microcurrículo</a>
+    <a href="carga-academica.html" class="nav-item "><span class="nav-icon">⚖️</span> Carga Académica</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Gestión</div>
+    <a href="horario-estudiante.html" class="nav-item "><span class="nav-icon">🗓️</span> Horario Estudiante</a>
+    <a href="horario-docente.html" class="nav-item "><span class="nav-icon">📅</span> Horario Docente</a>
+    <a href="aulas.html" class="nav-item "><span class="nav-icon">🏫</span> Aulas</a>
+    <a href="asistencia.html" class="nav-item "><span class="nav-icon">✅</span> Asistencia</a>
+    <a href="sensores.html" class="nav-item "><span class="nav-icon">📡</span> Sensores IoT</a>
+  </div>
+  <div class="sidebar-footer">
+    <strong>Victor Yepes</strong>
+    Ingeniería de Software II · 2025
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <button class="btn-icon" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">Coordinadores</span>
+    <span class="topbar-badge">5 coordinadores</span>
+    <div class="btn-icon">🔔</div><div class="avatar">AD</div>
+  </header>
+  <div class="page-content">
+
+    <div class="page-header fade-up">
+      <h1 class="page-title">Coordinadores</h1>
+      <p class="page-subtitle">Gestión de coordinadores por programa académico</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card blue fade-up"><div class="stat-icon">👔</div><div class="stat-value" data-count="5">0</div><div class="stat-label">Coordinadores</div></div>
+      <div class="stat-card purple fade-up fade-up-1"><div class="stat-icon">📚</div><div class="stat-value" data-count="14">0</div><div class="stat-label">Programas gestionados</div></div>
+    </div>
+    <div class="card fade-up">
+      <div class="card-header">
+        <span style="font-size:18px">👔</span>
+        <span class="card-title">Listado de Coordinadores</span>
+        <button class="btn btn-primary" onclick="openModal('modal-coord')">+ Nuevo Coordinador</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Programa</th><th>Ciudad</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr><td>COORD-001</td><td>Ing. Jorge Mendez Ríos</td><td>j.mendez@inst.edu.co</td><td><span class="badge badge-blue">Ing. Sistemas</span></td><td>Bogotá</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-coord')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>COORD-002</td><td>Lic. Beatriz López Arango</td><td>b.lopez@inst.edu.co</td><td><span class="badge badge-cyan">Admón. Empresas</span></td><td>Medellín</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-coord')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>COORD-003</td><td>Dr. Felipe Castañeda</td><td>f.castaneda@inst.edu.co</td><td><span class="badge badge-purple">Medicina</span></td><td>Cali</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-coord')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modal-coord">
+      <div class="modal">
+        <div class="modal-header"><span style="font-size:20px">👔</span><span class="modal-title">Registrar Coordinador</span><button class="btn-icon" onclick="closeModal('modal-coord')">✕</button></div>
+        <div class="modal-body">
+          <div class="form-grid form-grid-2">
+            <div class="form-group"><label class="form-label">ID Coordinador</label><input class="form-input" placeholder="COORD-XXX"/></div>
+            <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" placeholder="Nombres"/></div>
+            <div class="form-group"><label class="form-label">Apellido</label><input class="form-input" placeholder="Apellidos"/></div>
+            <div class="form-group"><label class="form-label">Correo</label><input class="form-input" type="email" placeholder="correo@inst.edu.co"/></div>
+            <div class="form-group"><label class="form-label">Celular</label><input class="form-input" placeholder="300 000 0000"/></div>
+            <div class="form-group"><label class="form-label">Programa</label><select class="form-select"><option>Ing. de Sistemas</option><option>Admón. de Empresas</option><option>Medicina</option><option>Psicología</option></select></div>
+            <div class="form-group"><label class="form-label">Ciudad</label><input class="form-input" placeholder="Ciudad"/></div>
+            <div class="form-group"><label class="form-label">Departamento</label><input class="form-input" placeholder="Departamento"/></div>
+          </div>
+        </div>
+        <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('modal-coord')">Cancelar</button><button class="btn btn-primary" onclick="toast('Coordinador registrado','success');closeModal('modal-coord')">Guardar</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

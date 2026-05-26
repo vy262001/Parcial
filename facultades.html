@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SGA · Facultades</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" alt="Logo" class="logo-img"/>
+    <div>
+      <div class="logo-text">S.G.A</div>
+      <span class="logo-sub">Sistema Académico</span>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Principal</div>
+    <a href="index.html" class="nav-item "><span class="nav-icon">📊</span> Dashboard</a>
+    <a href="administrador.html" class="nav-item "><span class="nav-icon">🛡️</span> Administrador</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Personas</div>
+    <a href="estudiantes.html" class="nav-item "><span class="nav-icon">🧑‍🎓</span> Estudiantes</a>
+    <a href="docentes.html" class="nav-item "><span class="nav-icon">👨‍🏫</span> Docentes</a>
+    <a href="coordinadores.html" class="nav-item "><span class="nav-icon">👔</span> Coordinadores</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Académico</div>
+    <a href="facultades.html" class="nav-item active"><span class="nav-icon">🏛️</span> Facultades</a>
+    <a href="programas.html" class="nav-item "><span class="nav-icon">📚</span> Programas</a>
+    <a href="materias.html" class="nav-item "><span class="nav-icon">📖</span> Materias</a>
+    <a href="microcurriculo.html" class="nav-item "><span class="nav-icon">📝</span> Microcurrículo</a>
+    <a href="carga-academica.html" class="nav-item "><span class="nav-icon">⚖️</span> Carga Académica</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Gestión</div>
+    <a href="horario-estudiante.html" class="nav-item "><span class="nav-icon">🗓️</span> Horario Estudiante</a>
+    <a href="horario-docente.html" class="nav-item "><span class="nav-icon">📅</span> Horario Docente</a>
+    <a href="aulas.html" class="nav-item "><span class="nav-icon">🏫</span> Aulas</a>
+    <a href="asistencia.html" class="nav-item "><span class="nav-icon">✅</span> Asistencia</a>
+    <a href="sensores.html" class="nav-item "><span class="nav-icon">📡</span> Sensores IoT</a>
+  </div>
+  <div class="sidebar-footer">
+    <strong>Victor Yepes</strong>
+    Ingeniería de Software II · 2025
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <button class="btn-icon" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">Facultades</span>
+    <span class="topbar-badge">4 facultades</span>
+    <div class="btn-icon">🔔</div><div class="avatar">AD</div>
+  </header>
+  <div class="page-content">
+
+    <div class="page-header fade-up"><h1 class="page-title">Facultades</h1><p class="page-subtitle">Administra las facultades de la institución educativa</p></div>
+    <div class="stats-grid">
+      <div class="stat-card blue fade-up"><div class="stat-icon">🏛️</div><div class="stat-value" data-count="4">0</div><div class="stat-label">Facultades</div></div>
+      <div class="stat-card cyan fade-up fade-up-1"><div class="stat-icon">📚</div><div class="stat-value" data-count="14">0</div><div class="stat-label">Programas total</div></div>
+      <div class="stat-card green fade-up fade-up-2"><div class="stat-icon">🧑‍🎓</div><div class="stat-value" data-count="1248">0</div><div class="stat-label">Estudiantes total</div></div>
+    </div>
+    <div class="card fade-up">
+      <div class="card-header"><span style="font-size:18px">🏛️</span><span class="card-title">Listado de Facultades</span><button class="btn btn-primary" onclick="openModal('modal-fac')">+ Nueva Facultad</button></div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Código</th><th>Nombre Facultad</th><th>Nro. Programas</th><th>Estudiantes</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr><td>FAC-01</td><td>Facultad de Ingeniería</td><td><span class="badge badge-blue">5 programas</span></td><td>450</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-fac')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>FAC-02</td><td>Ciencias Económicas y Admin.</td><td><span class="badge badge-cyan">4 programas</span></td><td>320</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-fac')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>FAC-03</td><td>Ciencias de la Salud</td><td><span class="badge badge-green">3 programas</span></td><td>280</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-fac')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>FAC-04</td><td>Humanidades y Ciencias Sociales</td><td><span class="badge badge-purple">2 programas</span></td><td>198</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-fac')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modal-fac">
+      <div class="modal">
+        <div class="modal-header"><span style="font-size:20px">🏛️</span><span class="modal-title">Registrar Facultad</span><button class="btn-icon" onclick="closeModal('modal-fac')">✕</button></div>
+        <div class="modal-body"><div class="form-grid form-grid-2">
+          <div class="form-group"><label class="form-label">Código Facultad</label><input class="form-input" placeholder="FAC-XX"/></div>
+          <div class="form-group"><label class="form-label">Nombre Facultad</label><input class="form-input" placeholder="Nombre de la facultad"/></div>
+          <div class="form-group"><label class="form-label">Número de Programas</label><input class="form-input" type="number" placeholder="0"/></div>
+        </div></div>
+        <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('modal-fac')">Cancelar</button><button class="btn btn-primary" onclick="toast('Facultad registrada','success');closeModal('modal-fac')">Guardar</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

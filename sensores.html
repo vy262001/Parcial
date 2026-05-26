@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SGA · Sensores de Asistencia</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" alt="Logo" class="logo-img"/>
+    <div>
+      <div class="logo-text">S.G.A</div>
+      <span class="logo-sub">Sistema Académico</span>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Principal</div>
+    <a href="index.html" class="nav-item "><span class="nav-icon">📊</span> Dashboard</a>
+    <a href="administrador.html" class="nav-item "><span class="nav-icon">🛡️</span> Administrador</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Personas</div>
+    <a href="estudiantes.html" class="nav-item "><span class="nav-icon">🧑‍🎓</span> Estudiantes</a>
+    <a href="docentes.html" class="nav-item "><span class="nav-icon">👨‍🏫</span> Docentes</a>
+    <a href="coordinadores.html" class="nav-item "><span class="nav-icon">👔</span> Coordinadores</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Académico</div>
+    <a href="facultades.html" class="nav-item "><span class="nav-icon">🏛️</span> Facultades</a>
+    <a href="programas.html" class="nav-item "><span class="nav-icon">📚</span> Programas</a>
+    <a href="materias.html" class="nav-item "><span class="nav-icon">📖</span> Materias</a>
+    <a href="microcurriculo.html" class="nav-item "><span class="nav-icon">📝</span> Microcurrículo</a>
+    <a href="carga-academica.html" class="nav-item "><span class="nav-icon">⚖️</span> Carga Académica</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Gestión</div>
+    <a href="horario-estudiante.html" class="nav-item "><span class="nav-icon">🗓️</span> Horario Estudiante</a>
+    <a href="horario-docente.html" class="nav-item "><span class="nav-icon">📅</span> Horario Docente</a>
+    <a href="aulas.html" class="nav-item "><span class="nav-icon">🏫</span> Aulas</a>
+    <a href="asistencia.html" class="nav-item "><span class="nav-icon">✅</span> Asistencia</a>
+    <a href="sensores.html" class="nav-item active"><span class="nav-icon">📡</span> Sensores IoT</a>
+  </div>
+  <div class="sidebar-footer">
+    <strong>Victor Yepes</strong>
+    Ingeniería de Software II · 2025
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <button class="btn-icon" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">Sensores de Asistencia</span>
+    <span class="topbar-badge">8 sensores activos</span>
+    <div class="btn-icon">🔔</div><div class="avatar">AD</div>
+  </header>
+  <div class="page-content">
+
+    <div class="page-header fade-up"><h1 class="page-title">Sensores de Asistencia</h1><p class="page-subtitle">Dispositivos IoT para registro automático de asistencia</p></div>
+    <div class="stats-grid">
+      <div class="stat-card green fade-up"><div class="stat-icon">📡</div><div class="stat-value" data-count="8">0</div><div class="stat-label">Sensores activos</div></div>
+      <div class="stat-card red fade-up fade-up-1"><div class="stat-icon">⚠️</div><div class="stat-value" data-count="1">0</div><div class="stat-label">Sin conexión</div></div>
+      <div class="stat-card blue fade-up fade-up-2"><div class="stat-icon">📊</div><div class="stat-value" data-count="2847">0</div><div class="stat-label">Registros hoy</div></div>
+    </div>
+    <div class="card fade-up">
+      <div class="card-header"><span style="font-size:18px">📡</span><span class="card-title">Listado de Sensores</span><button class="btn btn-primary" onclick="openModal('modal-sensor')">+ Nuevo Sensor</button></div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Código Sensor</th><th>Aula Asignada</th><th>Nombre Aula</th><th>Estado</th><th>Último Registro</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr><td>SENS-01</td><td>AUL-101</td><td>Aula 101 – Bloque A</td><td><span class="badge badge-green">● Online</span></td><td>08:45 hoy</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="toast('Registro enviado','success')">📋</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>SENS-02</td><td>AUL-201</td><td>Aula 201 – Bloque B</td><td><span class="badge badge-green">● Online</span></td><td>08:30 hoy</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="toast('Registro enviado','success')">📋</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>SENS-03</td><td>LAB-01</td><td>Laboratorio de Sistemas</td><td><span class="badge badge-green">● Online</span></td><td>07:55 hoy</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="toast('Registro enviado','success')">📋</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>SENS-04</td><td>AUD-01</td><td>Auditorio Principal</td><td><span class="badge badge-red">● Offline</span></td><td>Ayer 14:20</td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="toast('Sin conexión','error')">📋</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modal-sensor">
+      <div class="modal">
+        <div class="modal-header"><span style="font-size:20px">📡</span><span class="modal-title">Registrar Sensor</span><button class="btn-icon" onclick="closeModal('modal-sensor')">✕</button></div>
+        <div class="modal-body"><div class="form-grid form-grid-2">
+          <div class="form-group"><label class="form-label">Código Sensor</label><input class="form-input" placeholder="SENS-XX"/></div>
+          <div class="form-group"><label class="form-label">Aula Asignada</label><select class="form-select"><option>AUL-101</option><option>AUL-201</option><option>LAB-01</option><option>AUD-01</option></select></div>
+        </div></div>
+        <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('modal-sensor')">Cancelar</button><button class="btn btn-primary" onclick="toast('Sensor registrado','success');closeModal('modal-sensor')">Guardar</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

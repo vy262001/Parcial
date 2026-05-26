@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SGA · Programas</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" alt="Logo" class="logo-img"/>
+    <div>
+      <div class="logo-text">S.G.A</div>
+      <span class="logo-sub">Sistema Académico</span>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Principal</div>
+    <a href="index.html" class="nav-item "><span class="nav-icon">📊</span> Dashboard</a>
+    <a href="administrador.html" class="nav-item "><span class="nav-icon">🛡️</span> Administrador</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Personas</div>
+    <a href="estudiantes.html" class="nav-item "><span class="nav-icon">🧑‍🎓</span> Estudiantes</a>
+    <a href="docentes.html" class="nav-item "><span class="nav-icon">👨‍🏫</span> Docentes</a>
+    <a href="coordinadores.html" class="nav-item "><span class="nav-icon">👔</span> Coordinadores</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Académico</div>
+    <a href="facultades.html" class="nav-item "><span class="nav-icon">🏛️</span> Facultades</a>
+    <a href="programas.html" class="nav-item active"><span class="nav-icon">📚</span> Programas</a>
+    <a href="materias.html" class="nav-item "><span class="nav-icon">📖</span> Materias</a>
+    <a href="microcurriculo.html" class="nav-item "><span class="nav-icon">📝</span> Microcurrículo</a>
+    <a href="carga-academica.html" class="nav-item "><span class="nav-icon">⚖️</span> Carga Académica</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Gestión</div>
+    <a href="horario-estudiante.html" class="nav-item "><span class="nav-icon">🗓️</span> Horario Estudiante</a>
+    <a href="horario-docente.html" class="nav-item "><span class="nav-icon">📅</span> Horario Docente</a>
+    <a href="aulas.html" class="nav-item "><span class="nav-icon">🏫</span> Aulas</a>
+    <a href="asistencia.html" class="nav-item "><span class="nav-icon">✅</span> Asistencia</a>
+    <a href="sensores.html" class="nav-item "><span class="nav-icon">📡</span> Sensores IoT</a>
+  </div>
+  <div class="sidebar-footer">
+    <strong>Victor Yepes</strong>
+    Ingeniería de Software II · 2025
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <button class="btn-icon" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">Programas</span>
+    <span class="topbar-badge">14 programas activos</span>
+    <div class="btn-icon">🔔</div><div class="avatar">AD</div>
+  </header>
+  <div class="page-content">
+
+    <div class="page-header fade-up"><h1 class="page-title">Programas Académicos</h1><p class="page-subtitle">Oferta académica de la institución</p></div>
+    <div class="stats-grid">
+      <div class="stat-card blue fade-up"><div class="stat-icon">📚</div><div class="stat-value" data-count="14">0</div><div class="stat-label">Programas</div></div>
+      <div class="stat-card gold fade-up fade-up-1"><div class="stat-icon">🎓</div><div class="stat-value" data-count="156">0</div><div class="stat-label">Créditos promedio</div></div>
+    </div>
+    <div class="card fade-up">
+      <div class="card-header"><span style="font-size:18px">📚</span><span class="card-title">Listado de Programas</span><button class="btn btn-primary" onclick="openModal('modal-prog')">+ Nuevo Programa</button></div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Código</th><th>Nombre del Programa</th><th>Facultad</th><th>Créditos</th><th>Estudiantes</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr><td>PROG-ISW</td><td>Ingeniería de Sistemas</td><td>Ingeniería</td><td>160</td><td><span class="badge badge-blue">210 est.</span></td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-prog')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>PROG-ICI</td><td>Ingeniería Civil</td><td>Ingeniería</td><td>170</td><td><span class="badge badge-blue">180 est.</span></td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-prog')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>PROG-ADE</td><td>Admón. de Empresas</td><td>C. Económicas</td><td>148</td><td><span class="badge badge-cyan">195 est.</span></td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-prog')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>PROG-MED</td><td>Medicina</td><td>C. de la Salud</td><td>280</td><td><span class="badge badge-purple">155 est.</span></td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-prog')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+            <tr><td>PROG-PSI</td><td>Psicología</td><td>Humanidades</td><td>144</td><td><span class="badge badge-gold">120 est.</span></td><td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="openModal('modal-prog')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modal-prog">
+      <div class="modal">
+        <div class="modal-header"><span style="font-size:20px">📚</span><span class="modal-title">Registrar Programa</span><button class="btn-icon" onclick="closeModal('modal-prog')">✕</button></div>
+        <div class="modal-body"><div class="form-grid form-grid-2">
+          <div class="form-group"><label class="form-label">Código Programa</label><input class="form-input" placeholder="PROG-XXX"/></div>
+          <div class="form-group"><label class="form-label">Nombre del Programa</label><input class="form-input" placeholder="Nombre"/></div>
+          <div class="form-group"><label class="form-label">Facultad</label><select class="form-select"><option>Ingeniería</option><option>C. Económicas</option><option>C. de la Salud</option><option>Humanidades</option></select></div>
+          <div class="form-group"><label class="form-label">Número de Créditos</label><input class="form-input" type="number" placeholder="160"/></div>
+        </div></div>
+        <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('modal-prog')">Cancelar</button><button class="btn btn-primary" onclick="toast('Programa registrado','success');closeModal('modal-prog')">Guardar</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

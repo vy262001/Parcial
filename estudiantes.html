@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SGA · Estudiantes</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" alt="Logo" class="logo-img"/>
+    <div>
+      <div class="logo-text">S.G.A</div>
+      <span class="logo-sub">Sistema Académico</span>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Principal</div>
+    <a href="index.html" class="nav-item "><span class="nav-icon">📊</span> Dashboard</a>
+    <a href="administrador.html" class="nav-item "><span class="nav-icon">🛡️</span> Administrador</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Personas</div>
+    <a href="estudiantes.html" class="nav-item active"><span class="nav-icon">🧑‍🎓</span> Estudiantes</a>
+    <a href="docentes.html" class="nav-item "><span class="nav-icon">👨‍🏫</span> Docentes</a>
+    <a href="coordinadores.html" class="nav-item "><span class="nav-icon">👔</span> Coordinadores</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Académico</div>
+    <a href="facultades.html" class="nav-item "><span class="nav-icon">🏛️</span> Facultades</a>
+    <a href="programas.html" class="nav-item "><span class="nav-icon">📚</span> Programas</a>
+    <a href="materias.html" class="nav-item "><span class="nav-icon">📖</span> Materias</a>
+    <a href="microcurriculo.html" class="nav-item "><span class="nav-icon">📝</span> Microcurrículo</a>
+    <a href="carga-academica.html" class="nav-item "><span class="nav-icon">⚖️</span> Carga Académica</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Gestión</div>
+    <a href="horario-estudiante.html" class="nav-item "><span class="nav-icon">🗓️</span> Horario Estudiante</a>
+    <a href="horario-docente.html" class="nav-item "><span class="nav-icon">📅</span> Horario Docente</a>
+    <a href="aulas.html" class="nav-item "><span class="nav-icon">🏫</span> Aulas</a>
+    <a href="asistencia.html" class="nav-item "><span class="nav-icon">✅</span> Asistencia</a>
+    <a href="sensores.html" class="nav-item "><span class="nav-icon">📡</span> Sensores IoT</a>
+  </div>
+  <div class="sidebar-footer">
+    <strong>Victor Yepes</strong>
+    Ingeniería de Software II · 2025
+  </div>
+</aside>
+
+
+<div class="main">
+  <header class="topbar">
+    <button class="btn-icon" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">Estudiantes</span>
+    <span class="topbar-badge">1248 registrados</span>
+    <div class="btn-icon">🔔</div>
+    <div class="avatar">AD</div>
+  </header>
+
+  <div class="page-content">
+    <div class="page-header fade-up">
+      <h1 class="page-title">Gestión de Estudiantes</h1>
+      <p class="page-subtitle">Administra la información académica de todos los estudiantes</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card blue fade-up"><div class="stat-icon">🧑‍🎓</div><div class="stat-value" data-count="1248">0</div><div class="stat-label">Total estudiantes</div></div>
+      <div class="stat-card green fade-up fade-up-1"><div class="stat-icon">✅</div><div class="stat-value" data-count="1102">0</div><div class="stat-label">Activos</div></div>
+      <div class="stat-card gold fade-up fade-up-2"><div class="stat-icon">⏳</div><div class="stat-value" data-count="98">0</div><div class="stat-label">En proceso</div></div>
+      <div class="stat-card purple fade-up fade-up-3"><div class="stat-icon">🎓</div><div class="stat-value" data-count="48">0</div><div class="stat-label">Graduados periodo</div></div>
+    </div>
+
+    <div class="card fade-up">
+      <div class="card-header">
+        <span style="font-size:18px">🧑‍🎓</span>
+        <span class="card-title">Listado de Estudiantes</span>
+        <div class="search-bar">
+          <span>🔍</span>
+          <input type="text" id="search-est" placeholder="Buscar por nombre, ID..."/>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('modal-est')">+ Nuevo Estudiante</button>
+      </div>
+      <div class="table-wrap">
+        <table id="tabla-est">
+          <thead>
+            <tr>
+              <th>ID Estudiante</th>
+              <th>Nombre completo</th>
+              <th>Tipo Doc.</th>
+              <th>Programa</th>
+              <th>Facultad</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>EST-2025-001</td>
+              <td>Ana María Rodríguez López</td>
+              <td>CC</td>
+              <td><span class="badge badge-blue">Ing. Sistemas</span></td>
+              <td>Ingeniería</td>
+              <td><span class="badge badge-green">● Activo</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm" onclick="toast('Horario visualizado','info')">🗓️</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-est')">✏️</button><button class="btn btn-danger btn-sm" onclick="toast('Estudiante eliminado','error')">🗑️</button></div></td>
+            </tr>
+            <tr>
+              <td>EST-2025-002</td>
+              <td>Carlos Andrés Gómez Martínez</td>
+              <td>TI</td>
+              <td><span class="badge badge-cyan">Admón. Empresas</span></td>
+              <td>C. Económicas</td>
+              <td><span class="badge badge-green">● Activo</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm">🗓️</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-est')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+            <tr>
+              <td>EST-2025-003</td>
+              <td>Luisa Fernanda Torres Ríos</td>
+              <td>CC</td>
+              <td><span class="badge badge-purple">Medicina</span></td>
+              <td>C. de la Salud</td>
+              <td><span class="badge badge-gold">● En proceso</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm">🗓️</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-est')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+            <tr>
+              <td>EST-2025-004</td>
+              <td>Juan Pablo Herrera Castillo</td>
+              <td>CC</td>
+              <td><span class="badge badge-blue">Ing. Civil</span></td>
+              <td>Ingeniería</td>
+              <td><span class="badge badge-green">● Activo</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm">🗓️</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-est')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+            <tr>
+              <td>EST-2025-005</td>
+              <td>Valentina Mora Jiménez</td>
+              <td>CC</td>
+              <td><span class="badge badge-gold">Psicología</span></td>
+              <td>Humanidades</td>
+              <td><span class="badge badge-red">● Inactivo</span></td>
+              <td><div class="flex gap-2"><button class="btn btn-ghost btn-sm">🗓️</button><button class="btn btn-ghost btn-sm" onclick="openModal('modal-est')">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL NUEVO ESTUDIANTE -->
+<div class="modal-overlay" id="modal-est">
+  <div class="modal">
+    <div class="modal-header">
+      <span style="font-size:20px">🧑‍🎓</span>
+      <span class="modal-title">Registrar Estudiante</span>
+      <button class="btn-icon" onclick="closeModal('modal-est')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid form-grid-2">
+        <div class="form-group">
+          <label class="form-label">Tipo Documento</label>
+          <select class="form-select"><option>CC</option><option>TI</option><option>Pasaporte</option></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">ID Estudiante</label>
+          <input class="form-input" type="text" placeholder="EST-2025-XXX"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input class="form-input" type="text" placeholder="Nombres"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Apellido</label>
+          <input class="form-input" type="text" placeholder="Apellidos"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fecha Nacimiento</label>
+          <input class="form-input" type="date"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Sexo</label>
+          <select class="form-select"><option>Masculino</option><option>Femenino</option><option>Otro</option></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Celular</label>
+          <input class="form-input" type="tel" placeholder="300 000 0000"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Correo</label>
+          <input class="form-input" type="email" placeholder="correo@institución.edu.co"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Facultad</label>
+          <select class="form-select">
+            <option>Ingeniería</option>
+            <option>Ciencias Económicas</option>
+            <option>Ciencias de la Salud</option>
+            <option>Humanidades</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Programa</label>
+          <select class="form-select">
+            <option>Ing. de Sistemas</option>
+            <option>Ing. Civil</option>
+            <option>Admón. de Empresas</option>
+            <option>Medicina</option>
+            <option>Psicología</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Puntaje ICFES</label>
+          <input class="form-input" type="number" placeholder="Ej: 385"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">SISBEN</label>
+          <select class="form-select"><option>Sin SISBEN</option><option>A</option><option>B</option><option>C</option></select>
+        </div>
+        <div class="form-group" style="grid-column:1/-1">
+          <label class="form-label">Dirección</label>
+          <input class="form-input" type="text" placeholder="Calle/Carrera #"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ciudad</label>
+          <input class="form-input" type="text" placeholder="Ciudad"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Departamento</label>
+          <input class="form-input" type="text" placeholder="Departamento"/>
+        </div>
+        <hr class="divider" style="grid-column:1/-1"/>
+        <div class="form-group">
+          <label class="form-label">Nombre Acudiente</label>
+          <input class="form-input" type="text" placeholder="Nombre"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Celular Acudiente</label>
+          <input class="form-input" type="tel" placeholder="300 000 0000"/>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('modal-est')">Cancelar</button>
+      <button class="btn btn-primary" onclick="toast('Estudiante registrado correctamente','success');closeModal('modal-est')">Guardar Estudiante</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>initTableSearch('search-est','tabla-est')</script>
+</body>
+</html>

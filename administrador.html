@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SGA · Administrador</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" alt="Logo" class="logo-img"/>
+    <div>
+      <div class="logo-text">S.G.A</div>
+      <span class="logo-sub">Sistema Académico</span>
+    </div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Principal</div>
+    <a href="index.html" class="nav-item "><span class="nav-icon">📊</span> Dashboard</a>
+    <a href="administrador.html" class="nav-item active"><span class="nav-icon">🛡️</span> Administrador</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Personas</div>
+    <a href="estudiantes.html" class="nav-item "><span class="nav-icon">🧑‍🎓</span> Estudiantes</a>
+    <a href="docentes.html" class="nav-item "><span class="nav-icon">👨‍🏫</span> Docentes</a>
+    <a href="coordinadores.html" class="nav-item "><span class="nav-icon">👔</span> Coordinadores</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Académico</div>
+    <a href="facultades.html" class="nav-item "><span class="nav-icon">🏛️</span> Facultades</a>
+    <a href="programas.html" class="nav-item "><span class="nav-icon">📚</span> Programas</a>
+    <a href="materias.html" class="nav-item "><span class="nav-icon">📖</span> Materias</a>
+    <a href="microcurriculo.html" class="nav-item "><span class="nav-icon">📝</span> Microcurrículo</a>
+    <a href="carga-academica.html" class="nav-item "><span class="nav-icon">⚖️</span> Carga Académica</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Gestión</div>
+    <a href="horario-estudiante.html" class="nav-item "><span class="nav-icon">🗓️</span> Horario Estudiante</a>
+    <a href="horario-docente.html" class="nav-item "><span class="nav-icon">📅</span> Horario Docente</a>
+    <a href="aulas.html" class="nav-item "><span class="nav-icon">🏫</span> Aulas</a>
+    <a href="asistencia.html" class="nav-item "><span class="nav-icon">✅</span> Asistencia</a>
+    <a href="sensores.html" class="nav-item "><span class="nav-icon">📡</span> Sensores IoT</a>
+  </div>
+  <div class="sidebar-footer">
+    <strong>Victor Yepes</strong>
+    Ingeniería de Software II · 2025
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <button class="btn-icon" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">Administrador</span>
+    <span class="topbar-badge">Panel de control</span>
+    <div class="btn-icon">🔔</div><div class="avatar">AD</div>
+  </header>
+  <div class="page-content">
+
+    <div class="page-header fade-up"><h1 class="page-title">Administrador del Sistema</h1><p class="page-subtitle">Gestión central del sistema académico</p></div>
+    <div class="alert alert-success fade-up">✅ Sesión activa · Admin Carlos Vega · carlos.vega@inst.edu.co</div>
+    <div class="grid-2">
+      <div class="card fade-up">
+        <div class="card-header"><span style="font-size:18px">🛡️</span><span class="card-title">Perfil Administrador</span></div>
+        <div class="card-body"><div class="form-grid form-grid-2">
+          <div class="form-group"><label class="form-label">ID Administrador</label><input class="form-input" value="ADM-001"/></div>
+          <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" value="Carlos"/></div>
+          <div class="form-group"><label class="form-label">Apellido</label><input class="form-input" value="Vega"/></div>
+          <div class="form-group"><label class="form-label">Correo</label><input class="form-input" value="carlos.vega@inst.edu.co"/></div>
+          <div class="form-group"><label class="form-label">Celular</label><input class="form-input" value="310 123 4567"/></div>
+          <div class="form-group"><label class="form-label">Ciudad</label><input class="form-input" value="Bogotá"/></div>
+          <div class="form-group"><label class="form-label">Departamento</label><input class="form-input" value="Cundinamarca"/></div>
+          <div class="form-group"><label class="form-label">País</label><input class="form-input" value="Colombia"/></div>
+        </div>
+        <div class="mt-4"><button class="btn btn-primary" onclick="toast('Perfil actualizado','success')">Guardar cambios</button></div>
+        </div>
+      </div>
+      <div class="card fade-up fade-up-2">
+        <div class="card-header"><span style="font-size:18px">⚡</span><span class="card-title">Acciones Rápidas</span></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:10px">
+          <a href="coordinadores.html" class="btn btn-outline" style="justify-content:flex-start">👔 Gestionar Coordinadores</a>
+          <a href="docentes.html" class="btn btn-outline" style="justify-content:flex-start">👨‍🏫 Gestionar Docentes</a>
+          <a href="estudiantes.html" class="btn btn-outline" style="justify-content:flex-start">🧑‍🎓 Gestionar Estudiantes</a>
+          <a href="facultades.html" class="btn btn-outline" style="justify-content:flex-start">🏛️ Gestionar Facultades</a>
+          <a href="programas.html" class="btn btn-outline" style="justify-content:flex-start">📚 Gestionar Programas</a>
+          <a href="aulas.html" class="btn btn-outline" style="justify-content:flex-start">🏫 Gestionar Aulas</a>
+          <a href="materias.html" class="btn btn-outline" style="justify-content:flex-start">📖 Gestionar Materias</a>
+          <button class="btn btn-danger" style="justify-content:flex-start" onclick="toast('Sesión cerrada','error')">🚪 Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/app.js"></script>
+
+</body>
+</html>
